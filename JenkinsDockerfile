@@ -1,9 +1,7 @@
 FROM jenkins/jenkins:lts-jdk11
 USER root
 RUN apt update && \
-    curl -sSL https://get.docker.com/ | sh \
-RUN docker run --rm -u root -p 8080:8080 -v jenkins-data:/var/jenkins_home -v $(which docker):/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v "$HOME":/home jenkinsci/blueocean \
-RUN apt install -y --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
+    apt install -y --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
     curl -sSfL https://apt.octopus.com/public.key | apt-key add - && \
     sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" && \
     apt update && apt install -y octopuscli
