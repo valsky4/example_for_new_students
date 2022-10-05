@@ -1,5 +1,9 @@
 FROM jenkins/jenkins:lts-jdk11
 USER root
+RUN apt-get update
+RUN curl -sSL https://get.docker.com/ | sh
+RUN sudo docker build -t yourusername/jenkins .
+RUN sudo docker run -d -p8080:8080 -v /var/run/docker.sock:/var/run/docker.sock yourusername/jenkins
 RUN apt update && \
     apt install -y --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
     curl -sSfL https://apt.octopus.com/public.key | apt-key add - && \
