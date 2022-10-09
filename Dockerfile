@@ -7,6 +7,5 @@ COPY . /dockerfun
 WORKDIR /dockerfun
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install docker-compose
-RUN docker-compose -f docker-composer.yml up -d
 RUN ["pytest", "-n", "auto", "-v"]
 #CMD tail -f /dev/null
