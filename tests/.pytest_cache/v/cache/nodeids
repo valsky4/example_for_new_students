@@ -1,0 +1,5 @@
+[
+  "test_with_remote_selenium.py::PythonOrgSearch::test_search_in_python_org",
+  "test_with_remote_selenium.py::Test::test_search_in_python_org[CHROME]",
+  "test_with_remote_selenium.py::Test::test_search_in_python_org[FIREFOX]"
+]

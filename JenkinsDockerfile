@@ -11,3 +11,4 @@ RUN add-apt-repository \
    stable"
 RUN apt-get update -qq
 RUN apt-get install -y docker-ce
+RUN usermod -aG docker jenkins

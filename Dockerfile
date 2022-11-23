@@ -1,11 +1,14 @@
-FROM python:3.6-slim
-#Change pod time zone
-RUN rm -f /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Sofia /etc/localtime
-MAINTAINER valentinstoyanov474@gmail.com
-COPY . /dockerfun
-WORKDIR /dockerfun
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install docker-compose
-RUN ["pytest", "-n", "auto", "-v"]
-#CMD tail -f /dev/null
+FROM jenkins/jenkins:lts
+USER root
+RUN apt-get update -qq \
+    && apt-get install -qqy apt-transport-https ca-certificates \
+    curl gnupg2 software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg \
+    | apt-key add -
+RUN add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+RUN apt-get update -qq
+RUN apt-get install -y docker-ce
+RUN usermod -aG docker jenkins
