@@ -1,3 +1,10 @@
+########################################How to####################################################
+#1.Go to Dockerfile and run [docker image build -t custom-jenkins-docker . ]
+#1.1 Run #docker run -it -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home custom-jenkins-docker
+#2.Setup Jenkins + Add Build Steps (see Builds steps for Jenkins)
+#3.Run Jenkins job
+#4.Be happy
+########################################Build steps for Jenkins##########################################
 # curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 # docker stop selenium-hub || true
 # docker rm selenium-hub || true
@@ -5,3 +12,4 @@
 # python3 -m pip install --upgrade pip
 # pip3 install -r requirements.txt
 # pytest -v -n 3 tests
+#################################################################################################
