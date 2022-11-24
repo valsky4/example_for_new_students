@@ -7,6 +7,7 @@ def driver_init(request):
     global web_driver
     if request.param == "CHROME":
         options_exec = webdriver.ChromeOptions()
+        options_exec.add_argument('--disable-blink-features=AutomationControlled')
         options_exec.add_argument('--no-sandbox')
         options_exec.add_argument('--window-size=1920,1080')
         options_exec.add_argument('--headless')
@@ -17,6 +18,7 @@ def driver_init(request):
         )
     if request.param == "FIREFOX":
         options_exec = webdriver.FirefoxOptions()
+        options_exec.add_argument('--disable-blink-features=AutomationControlled')
         options_exec.add_argument('--no-sandbox')
         options_exec.add_argument('--window-size=1920,1080')
         options_exec.add_argument('--headless')
@@ -28,6 +30,7 @@ def driver_init(request):
     if request.param == "EDGE":
         options_exec = webdriver.EdgeOptions()
         options_exec.add_argument('--no-sandbox')
+        options_exec.add_argument('--disable-blink-features=AutomationControlled')
         options_exec.add_argument('--window-size=1920,1080')
         options_exec.add_argument('--headless')
         options_exec.add_argument('--disable-gpu')
