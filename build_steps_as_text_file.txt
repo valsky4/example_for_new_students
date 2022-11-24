@@ -1,0 +1,7 @@
+# curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+# docker stop selenium-hub || true
+# docker rm selenium-hub || true
+# docker-compose up -d selenium-hub firefox edge chrome
+# python3 -m pip install --upgrade pip
+# pip3 install -r requirements.txt
+# pytest -v -n 3 tests
