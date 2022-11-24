@@ -13,7 +13,7 @@ def driver_init(request):
         options_exec.add_argument('--headless')
         options_exec.add_argument('--disable-gpu')
         web_driver = webdriver.Remote(
-            command_executor="http://172.33.0.5:4444",
+            command_executor="http://172.15.0.0:4444",
             options=options_exec
         )
     if request.param == "FIREFOX":
@@ -24,7 +24,7 @@ def driver_init(request):
         options_exec.add_argument('--headless')
         options_exec.add_argument('--disable-gpu')
         web_driver = webdriver.Remote(
-            command_executor="http://172.33.0.5:4444",
+            command_executor="http://172.15.0.0:4444",
             options=options_exec
         )
     if request.param == "EDGE":
@@ -35,7 +35,7 @@ def driver_init(request):
         options_exec.add_argument('--headless')
         options_exec.add_argument('--disable-gpu')
         web_driver = webdriver.Remote(
-            command_executor="http://172.33.0.5:4444",
+            command_executor="http://172.15.0.0:4444",
             options=options_exec
         )
     request.cls.driver = web_driver
